@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Belon 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,600&family=Nunito:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbeff1; --ink:#3a1f2b; --soft:#7a5563; --rose:#c2456b; --glow:#f7c9d4; --line:#ecc9d2; --bg2:#f8d9e2; --card:rgba(255,255,255,.72); --shadow:rgba(194,69,107,.18);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#241230; --ink:#fbe9ee; --soft:#cfb0be; --rose:#ff8fb0; --glow:#4a2347; --line:#4b2f55; --bg2:#3a1a48; --card:rgba(255,255,255,.06); --shadow:rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#241230; --ink:#fbe9ee; --soft:#cfb0be; --rose:#ff8fb0; --glow:#4a2347; --line:#4b2f55; --bg2:#3a1a48; --card:rgba(255,255,255,.06); --shadow:rgba(0,0,0,.35);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{
+  margin:0; color:var(--ink); overflow-x:hidden;
+  background:var(--bg) linear-gradient(170deg, var(--bg) 0%, var(--bg2) 100%);
+  font-family:"Nunito","Segoe UI",system-ui,sans-serif; font-size:1.1rem; line-height:1.75;
+}
+#floaters{position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0}
+.float{
+  position:absolute; bottom:-3rem; opacity:0;
+  animation:floatUp var(--dur) linear forwards;
+}
+@keyframes floatUp{
+  0%{transform:translate(0,0) scale(.6) rotate(-10deg); opacity:0}
+  10%{opacity:.85}
+  50%{transform:translate(var(--sway),-55vh) scale(1) rotate(10deg)}
+  100%{transform:translate(calc(var(--sway) * -1),-115vh) scale(1.1) rotate(-8deg); opacity:0}
+}
+.burst{
+  position:fixed; z-index:5; pointer-events:none; margin:-.6em 0 0 -.6em;
+  animation:burst .9s ease-out forwards;
+}
+@keyframes burst{
+  0%{transform:translate(0,0) scale(.4); opacity:1}
+  100%{transform:translate(var(--dx),var(--dy)) scale(1.3); opacity:0}
+}
+.hero,main{position:relative; z-index:1}
+.hero{
+  min-height:92vh; display:flex; flex-direction:column; justify-content:center;
+  padding:3rem 1.5rem; max-width:40rem; margin:0 auto;
+}
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:radial-gradient(60% 50% at 30% 30%, var(--glow), transparent 70%);
+  animation:glow 5s ease-in-out infinite alternate;
+}
+@keyframes glow{from{opacity:.6}to{opacity:1}}
+.hero h1{
+  font-family:"Great Vibes","Segoe Script","Brush Script MT",cursive;
+  font-weight:400; font-size:clamp(5rem,26vw,10.5rem); line-height:1; margin:0 0 1rem;
+  text-shadow:0 6px 28px color-mix(in srgb, var(--rose) 35%, transparent);
+  color:var(--rose); animation:rise 1.4s ease-out both;
+}
+.hero h1 .beat{display:inline-block; font-size:.5em; vertical-align:super; margin-left:.1em}
+.beat{animation:beat 1.3s ease-in-out infinite; transform-origin:center}
+@keyframes beat{
+  0%,100%{transform:scale(1)} 15%{transform:scale(1.28)} 30%{transform:scale(1)} 45%{transform:scale(1.18)} 60%{transform:scale(1)}
+}
+.hero p{margin:0; max-width:28rem; color:var(--soft); font-size:1.25rem; animation:rise 1.4s .5s ease-out both}
+.hint{margin-top:1.5rem !important; font-size:.95rem; animation:rise 1.4s 1s ease-out both, nudge 2s 2.5s ease-in-out infinite !important}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+main{max-width:40rem; margin:0 auto; padding:0 1.25rem 5rem}
+section{
+  padding:2.25rem 1.75rem; margin:0 0 1.5rem; border-radius:1.75rem;
+  background:var(--card); border:1px solid var(--line);
+  box-shadow:0 18px 40px -22px var(--shadow);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+}
+.js section.reveal{opacity:0; transform:translateY(28px); transition:opacity 1s ease, transform 1s ease}
+.js section.reveal.in{opacity:1; transform:none}
+h2{font-family:"Playfair Display",Georgia,serif; font-size:1.65rem; line-height:1.3; margin:0 0 1.1rem; font-weight:600}
+h2 .beat{display:inline-block; margin-left:.25rem}
+section p{margin:0 0 1rem; max-width:34rem}
+.final{text-align:center; padding-top:3rem}
+.final p{margin-left:auto; margin-right:auto; color:var(--soft)}
+.bigheart{font-size:4rem; line-height:1; margin-bottom:1rem; display:block; animation:beat 1.1s ease-in-out infinite}
+button{
+  font:inherit; font-weight:600; font-size:1.05rem; color:#fff;
+  background:linear-gradient(135deg, #ff7aa2, var(--rose));
+  border:0; border-radius:999px; padding:.9rem 2rem; cursor:pointer;
+  box-shadow:0 10px 24px -8px var(--shadow);
+  transition:transform .2s ease;
+}
+button:hover{transform:scale(1.06)}
+button:active{transform:scale(.96)}
+button:focus-visible{outline:3px solid var(--ink); outline-offset:3px}
+#reveal{
+  max-height:0; opacity:0; overflow:hidden; transition:max-height .8s ease, opacity .8s ease;
+}
+#reveal.open{max-height:30rem; opacity:1; margin-top:2rem}
+#reveal .big{
+  font-family:"Great Vibes","Segoe Script","Brush Script MT",cursive; font-weight:400;
+  font-size:clamp(3.2rem,15vw,5.2rem); line-height:1.1; color:var(--rose); margin:0 0 .75rem;
+}
+#reveal.open .big{animation:pop .9s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes pop{from{transform:scale(.3); opacity:0}to{transform:scale(1); opacity:1}}
+.sign{font-style:italic; color:var(--soft)}
+
+.stars{position:fixed; inset:0; pointer-events:none; z-index:0}
+.star{position:absolute; width:4px; height:4px; border-radius:50%; background:var(--rose); opacity:0;
+  animation:twinkle var(--t) ease-in-out infinite; animation-delay:var(--d)}
+@keyframes twinkle{0%,100%{opacity:0; transform:scale(.4)}50%{opacity:.85; transform:scale(1.7)}}
+.petal{position:fixed; top:-2rem; z-index:0; pointer-events:none; animation:fall var(--dur) linear forwards}
+@keyframes fall{
+  0%{transform:translate(0,0) rotate(0); opacity:0}
+  10%{opacity:.85}
+  100%{transform:translate(var(--sway),112vh) rotate(var(--rot)); opacity:.5}
+}
+.shoot{position:fixed; top:var(--y); left:-10%; width:100px; height:2px; z-index:0; pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--rose)); animation:shoot 1.3s ease-out forwards}
+@keyframes shoot{
+  from{transform:translate(0,0) rotate(20deg); opacity:1}
+  to{transform:translate(125vw,45vh) rotate(20deg); opacity:0}
+}
+.trail{position:fixed; z-index:5; pointer-events:none; margin:-.5em 0 0 -.5em; animation:trail .8s ease-out forwards}
+@keyframes trail{from{transform:scale(1) translateY(0); opacity:.9}to{transform:scale(.2) translateY(18px); opacity:0}}
+.letter{display:inline-block; animation:drop 1s cubic-bezier(.2,1.5,.4,1) both; animation-delay:calc(var(--i) * .12s + .2s)}
+@keyframes drop{from{transform:translateY(-70px) rotate(-12deg); opacity:0}to{transform:none; opacity:1}}
+h2{display:inline-block; padding-bottom:.3rem; background:linear-gradient(var(--rose),var(--rose)) 0 100%/0 2px no-repeat;
+  transition:background-size 1.2s ease .4s}
+section.in h2{background-size:100% 2px}
+#btn{animation:ring 2s ease-out infinite}
+@keyframes ring{
+  0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--rose) 55%, transparent)}
+  100%{box-shadow:0 0 0 18px transparent}
+}
+.bigheart{cursor:pointer}
+.caret::after{content:"|"; margin-left:2px; color:var(--rose); animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.final{background:linear-gradient(160deg, var(--card), color-mix(in srgb, var(--glow) 70%, transparent))}
+.sign{font-family:"Playfair Display",Georgia,serif}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important; transition:none !important}
+  .js section.reveal{opacity:1; transform:none}
+  #floaters{display:none}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<div class="stars" id="stars" aria-hidden="true"></div>
+<div id="floaters" aria-hidden="true"></div>
+
+<header class="hero">
+  <h1 aria-label="Belon"><span class="letter" style="--i:0" aria-hidden="true">B</span><span class="letter" style="--i:1" aria-hidden="true">e</span><span class="letter" style="--i:2" aria-hidden="true">l</span><span class="letter" style="--i:3" aria-hidden="true">o</span><span class="letter" style="--i:4" aria-hidden="true">n</span><span class="beat" aria-hidden="true">💗</span></h1>
+  <p>I made this page just for you. It's simple, but everything on it is true.</p>
+  <p class="hint">Scroll down, and tap anywhere you like 💕</p>
+</header>
+
+<main>
+  <section class="reveal">
+    <h2>You're the best girlfriend I could ask for <span class="beat" aria-hidden="true">💖</span></h2>
+    <p>I want you to know how much you mean to me. You're there, you care, and you make things feel lighter just by being around.</p>
+    <p>Not everyone gets a Girl like you. I know I'm lucky to have you.</p>
+  </section>
+
+  <section class="reveal">
+    <h2>Your personality is amazing <span class="beat" aria-hidden="true">💕</span></h2>
+    <p>The way you are with people, the way you talk, the way you laugh. It's all you, and it's all good.</p>
+    <p>You don't have to try to be anything. You're already someone people want around.</p>
+  </section>
+
+  <section class="reveal final">
+    <span class="bigheart" aria-hidden="true">❤️</span>
+    <h2>One more thing</h2>
+    <p>I've been wanting to say this properly.</p>
+    <button id="btn" type="button" aria-expanded="false" aria-controls="reveal">Tap to read it 💘</button>
+    <div id="reveal" role="region" aria-live="polite">
+      <p class="big">I love you, Belon. 💗</p>
+      <p>I'm not saying it to make you happy. I'm saying it because it's real.</p>
+      <p class="sign">Yours, Prince 💕</p>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var hearts = ['💗','💖','💕','💘','❤️','💞','🩷'];
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var floaters = document.getElementById('floaters');
+  function pick() { return hearts[Math.floor(Math.random() * hearts.length)]; }
+
+  // Slow hearts drifting up the screen
+  function spawnFloat() {
+    if (document.hidden || floaters.children.length > 22) return;
+    var h = document.createElement('span');
+    h.className = 'float';
+    h.textContent = pick();
+    h.style.left = (Math.random() * 96) + '%';
+    h.style.fontSize = (0.9 + Math.random() * 1.6) + 'rem';
+    h.style.setProperty('--dur', (7 + Math.random() * 6) + 's');
+    h.style.setProperty('--sway', (Math.random() * 60 - 30) + 'px');
+    h.addEventListener('animationend', function () { h.remove(); });
+    floaters.appendChild(h);
+  }
+
+  // Little burst of hearts at a point
+  function burst(x, y, n) {
+    for (var i = 0; i < n; i++) {
+      var b = document.createElement('span');
+      b.className = 'burst';
+      b.textContent = pick();
+      var a = Math.random() * Math.PI * 2, d = 40 + Math.random() * 90;
+      b.style.left = x + 'px'; b.style.top = y + 'px';
+      b.style.fontSize = (1 + Math.random() * 0.8) + 'rem';
+      b.style.setProperty('--dx', (Math.cos(a) * d) + 'px');
+      b.style.setProperty('--dy', (Math.sin(a) * d - 30) + 'px');
+      b.addEventListener('animationend', function () { this.remove(); });
+      document.body.appendChild(b);
+    }
+  }
+
+
+  function rain(n) {
+    for (var i = 0; i < n; i++) {
+      (function (i) {
+        setTimeout(function () {
+          var r = document.createElement('span');
+          r.className = 'petal';
+          r.textContent = pick();
+          r.style.left = (Math.random() * 100) + '%';
+          r.style.fontSize = (1 + Math.random() * 1.2) + 'rem';
+          r.style.setProperty('--dur', (3 + Math.random() * 2.5) + 's');
+          r.style.setProperty('--sway', (Math.random() * 120 - 60) + 'px');
+          r.style.setProperty('--rot', (Math.random() * 360 - 180) + 'deg');
+          r.style.zIndex = 4;
+          r.addEventListener('animationend', function () { r.remove(); });
+          document.body.appendChild(r);
+        }, i * 70);
+      })(i);
+    }
+  }
+
+  if (!calm) {
+    // twinkling stars
+    var sky = document.getElementById('stars');
+    for (var s = 0; s < 34; s++) {
+      var st = document.createElement('span');
+      st.className = 'star';
+      st.style.left = (Math.random() * 100) + '%';
+      st.style.top = (Math.random() * 100) + '%';
+      st.style.setProperty('--t', (2 + Math.random() * 3) + 's');
+      st.style.setProperty('--d', (Math.random() * 4) + 's');
+      sky.appendChild(st);
+    }
+
+    // petals falling from the top
+    var petals = ['🌸','🌷','🌹','✨'];
+    setInterval(function () {
+      if (document.hidden) return;
+      var r = document.createElement('span');
+      r.className = 'petal';
+      r.textContent = petals[Math.floor(Math.random() * petals.length)];
+      r.style.left = (Math.random() * 100) + '%';
+      r.style.fontSize = (0.9 + Math.random() * 0.9) + 'rem';
+      r.style.setProperty('--dur', (9 + Math.random() * 6) + 's');
+      r.style.setProperty('--sway', (Math.random() * 140 - 70) + 'px');
+      r.style.setProperty('--rot', (Math.random() * 540 - 270) + 'deg');
+      r.addEventListener('animationend', function () { r.remove(); });
+      document.body.appendChild(r);
+    }, 2200);
+
+    // a shooting star now and then
+    setInterval(function () {
+      if (document.hidden) return;
+      var m = document.createElement('span');
+      m.className = 'shoot';
+      m.style.setProperty('--y', (Math.random() * 40) + '%');
+      m.addEventListener('animationend', function () { m.remove(); });
+      document.body.appendChild(m);
+    }, 6500);
+
+    // sparkle trail that follows the pointer
+    var lastTrail = 0, trailSet = ['✨','💗','💕'];
+    document.addEventListener('pointermove', function (e) {
+      var now = Date.now();
+      if (now - lastTrail < 70) return;
+      lastTrail = now;
+      var t = document.createElement('span');
+      t.className = 'trail';
+      t.textContent = trailSet[Math.floor(Math.random() * trailSet.length)];
+      t.style.left = e.clientX + 'px'; t.style.top = e.clientY + 'px';
+      t.style.fontSize = (0.8 + Math.random() * 0.6) + 'rem';
+      t.addEventListener('animationend', function () { t.remove(); });
+      document.body.appendChild(t);
+    });
+
+    // tapping the big heart sets off a bigger burst
+    var bh = document.querySelector('.bigheart');
+    bh.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var r = bh.getBoundingClientRect();
+      burst(r.left + r.width / 2, r.top + r.height / 2, 26);
+    });
+
+    // typewriter for the opening line
+    var line = document.querySelector('.hero p');
+    var full = line.textContent;
+    line.style.minHeight = line.offsetHeight + 'px';
+    line.textContent = '';
+    line.classList.add('caret');
+    var n = 0;
+    setTimeout(function type() {
+      line.textContent = full.slice(0, ++n);
+      if (n < full.length) { setTimeout(type, 42); }
+      else { setTimeout(function () { line.classList.remove('caret'); }, 1500); }
+    }, 1000);
+  }
+
+  if (!calm) {
+    for (var i = 0; i < 6; i++) setTimeout(spawnFloat, i * 400);
+    setInterval(spawnFloat, 900);
+    document.addEventListener('pointerdown', function (e) { burst(e.clientX, e.clientY, 7); });
+  }
+
+  // Sections fade in as you scroll
+  var secs = document.querySelectorAll('section.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold: 0.2});
+    secs.forEach(function (s) { io.observe(s); });
+  } else {
+    secs.forEach(function (s) { s.classList.add('in'); });
+  }
+
+  // The final message
+  var btn = document.getElementById('btn');
+  var box = document.getElementById('reveal');
+  btn.addEventListener('click', function () {
+    var open = box.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Hide it' : 'Tap to read it 💘';
+    if (open) {
+      setTimeout(function () { box.scrollIntoView({behavior: calm ? 'auto' : 'smooth', block: 'center'}); }, 150);
+      if (!calm) {
+        rain(40);
+        var w = window.innerWidth, h = window.innerHeight;
+        for (var k = 0; k < 6; k++) {
+          (function (k) {
+            setTimeout(function () { burst(Math.random() * w, h * (0.3 + Math.random() * 0.4), 9); }, 250 + k * 220);
+          })(k);
+        }
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
